@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLoginMutation } from "../slices/userApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
+import Loader from "../components/Loader";
+
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -59,6 +61,7 @@ const LoginScreen = () => {
           ></Form.Control>
         </Form.Group>
 
+        {isLoading && <Loader />}
         <Button
           disabled={isLoading}
           type="submit"
